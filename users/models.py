@@ -41,14 +41,21 @@ class UserManager(BaseUserManager):
 
 
 class User(AbstractUser):
-    email = models.EmailField(unique=True)
+    username = models.CharField(
+        max_length=150,
+        unique=False,
+        blank=True,
+        null=True,
+    )
+    email = models.EmailField(unique=True, blank=False, null=False)
     first_name = models.CharField(max_length=100, blank=True, null=True)
     last_name = models.CharField(max_length=100, blank=True, null=True)
-    password = models.CharField(max_length=100)
     is_staff = models.BooleanField(default=False)
 
     USERNAME_FIELD = "email"
-    REQUIRED_FIELDS = ["username"]
+    REQUIRED_FIELDS = []
+
+    objects = UserManager()
 
     class Meta:
         verbose_name = "User"
