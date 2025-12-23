@@ -1,4 +1,4 @@
-import requests
+from django.contrib.sites import requests
 from django.conf import settings
 
 

@@ -1,8 +1,7 @@
-from rest_framework.test import APITestCase, APIClient
+from rest_framework.test import APITestCase
 from rest_framework import status
 from django.urls import reverse
 from django.contrib.auth import get_user_model
-from datetime import date, timedelta
 from .models import Book
 
 User = get_user_model()
